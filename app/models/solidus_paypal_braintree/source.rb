@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module SolidusPaypalBraintree
-  class Source < SolidusSupport.payment_source_parent_class
+  class Source < ::Spree::PaymentSource
     include RequestProtection
 
     PAYPAL = "PayPalAccount"

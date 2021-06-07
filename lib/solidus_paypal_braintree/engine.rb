@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
-require 'solidus_support'
-
 module SolidusPaypalBraintree
   class Engine < Rails::Engine
-    include SolidusSupport::EngineExtensions
+    include SolidusPaypalBraintree::EngineExtensions
 
     isolate_namespace SolidusPaypalBraintree
     engine_name 'solidus_paypal_braintree'
@@ -23,7 +21,7 @@ module SolidusPaypalBraintree
       Spree::PermittedAttributes.source_attributes.concat [:nonce, :payment_type]
     end
 
-    if SolidusSupport.frontend_available?
+    if true
       config.assets.precompile += [
         'solidus_paypal_braintree/checkout.js',
         'solidus_paypal_braintree/frontend.js',
@@ -33,7 +31,7 @@ module SolidusPaypalBraintree
       paths["app/views"] << "lib/views/frontend"
     end
 
-    if SolidusSupport.backend_available?
+    if true
       config.assets.precompile += ["spree/backend/solidus_paypal_braintree.js"]
       paths["app/controllers"] << "lib/controllers/backend"
 
