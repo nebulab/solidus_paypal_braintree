@@ -22,7 +22,7 @@ module SolidusPaypalBraintree
         @gateway = ::SolidusPaypalBraintree::Gateway.find(params[:payment_method_id])
       else
         store_payment_methods_scope =
-          if current_store.payment_methods.empty?
+          if (current_store.try(:payment_methods) || []).empty?
             ::SolidusPaypalBraintree::Gateway.all
           else
             ::SolidusPaypalBraintree::Gateway.where(id: current_store.payment_method_ids)

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'solidus_core'
+require 'spree'
 require 'solidus_paypal_braintree/version'
 require 'solidus_paypal_braintree/engine_extensions'
 require 'solidus_paypal_braintree/engine'
