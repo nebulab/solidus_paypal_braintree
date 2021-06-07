@@ -8,11 +8,11 @@ module SolidusPaypalBraintree
     APPLE_PAY = "ApplePayCard"
     CREDIT_CARD = "CreditCard"
 
-    belongs_to :user, class_name: "Spree::User", optional: true
+    belongs_to :user, class_name: "Spree::User"
     belongs_to :payment_method, class_name: 'Spree::PaymentMethod'
     has_many :payments, as: :source, class_name: "Spree::Payment", dependent: :destroy
 
-    belongs_to :customer, class_name: "SolidusPaypalBraintree::Customer", optional: true
+    belongs_to :customer, class_name: "SolidusPaypalBraintree::Customer"
 
     validates :payment_type, inclusion: [PAYPAL, APPLE_PAY, CREDIT_CARD]
 
